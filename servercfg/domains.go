@@ -18,6 +18,7 @@ var (
 )
 
 func loadDomainsFromFile(filepath string) {
+	log.Println("loadDomainsFromFile, file path:", filepath)
 	file, err := os.Open(filepath)
 	if err != nil {
 		log.Fatal(err)

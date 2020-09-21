@@ -19,14 +19,12 @@ import (
 
 var (
 	cfgFilepath    = ""
-	redisServerURL = ""
 	serverUUID     = ""
 )
 
 func init() {
 	flag.StringVar(&cfgFilepath, "c", "", "specify the config file path name")
 	flag.StringVar(&serverUUID, "u", "", "specify the server UUID")
-	flag.StringVar(&redisServerURL, "r", "", "redis server address")
 }
 
 func main() {
@@ -42,17 +40,13 @@ func main() {
 		os.Exit(0)
 	}
 
-	if redisServerURL != "" {
-		servercfg.RedisServer = redisServerURL
-	}
-
 	if serverUUID != "" {
 		servercfg.ServerID = serverUUID
 	}
 
 	if cfgFilepath == "" {
 		// 如果没有配置json文件，则必须提供uuid以及redis地址
-		if serverUUID == "" || redisServerURL == "" {
+		if serverUUID == "" {
 			log.Fatal("must provide redis and uuid when json config file is omit")
 		}
 	}

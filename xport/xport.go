@@ -126,7 +126,11 @@ func xportServeWebsocket(ctx *server.RequestContext) {
 
 func init() {
 	server.InvokeAfterCfgLoaded(func() {
-		server.RegisterGetHandleNoUUID(servercfg.XPortWebsocketPath, xportServeWebsocket)
-		server.RegisterGetHandle(servercfg.XPortLWSPath, xportServeLWS)
+		if len(servercfg.XPortWebsocketPath) > 0 {
+			server.RegisterGetHandleNoUUID(servercfg.XPortWebsocketPath, xportServeWebsocket)
+		}
+		if len(servercfg.XPortLWSPath) > 0 {
+			server.RegisterGetHandle(servercfg.XPortLWSPath, xportServeLWS)
+		}
 	})
 }

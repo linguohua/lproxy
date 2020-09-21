@@ -80,6 +80,8 @@ func handleDomains(domainVer string, response *Response) {
 
 func init() {
 	server.InvokeAfterCfgLoaded(func() {
-		server.RegisterPostHandle(servercfg.CfgMonitorPath, cfgMonitorHandle)
+		if len(servercfg.CfgMonitorPath) > 0 {
+			server.RegisterPostHandle(servercfg.CfgMonitorPath, cfgMonitorHandle)
+		}
 	})
 }

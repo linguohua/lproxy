@@ -25,10 +25,10 @@ var (
 	PfxLocation = "/home/abc/identity.pfx"
 	PfxPassword = "123456"
 
-	XPortLWSPath       = "/xportlws"
-	XPortWebsocketPath = "/xportws"
-	AuthPath           = "/auth"
-	CfgMonitorPath     = "/cfgmonitor"
+	XPortLWSPath       = ""
+	XPortWebsocketPath = ""
+	AuthPath           = ""
+	CfgMonitorPath     = ""
 
 	BandwidthKbs = 0
 

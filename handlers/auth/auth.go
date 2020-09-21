@@ -115,6 +115,8 @@ func handleUpgrade(arch string, currentVerStr string, response *Response) {
 
 func init() {
 	server.InvokeAfterCfgLoaded(func() {
-		server.RegisterPostHandleNoUUID(servercfg.AuthPath, authHandle)
+		if len(servercfg.AuthPath) > 0 {
+			server.RegisterPostHandleNoUUID(servercfg.AuthPath, authHandle)
+		}
 	})
 }
