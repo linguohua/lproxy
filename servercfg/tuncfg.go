@@ -29,6 +29,7 @@ type TunCfg struct {
 	TunnelURL       string `json:"tunnel_url"`
 	LocalServer     string `json:"local_server"`
 	TunnelReqCap    int    `json:"tunnel_req_cap"`
+	ReqPacketsQuota int    `json:"request_quota"`
 	RelayDomain     string `json:"relay_domain"`
 	RelayPort       int    `json:"relay_port"`
 	LocalTCPPort    int    `json:"local_tcp_port"`
